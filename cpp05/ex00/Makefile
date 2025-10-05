@@ -6,11 +6,11 @@
 #    By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/10/04 21:07:25 by tborges-          #+#    #+#              #
-#    Updated: 2025/10/05 18:30:57 by tborges-         ###   ########.fr        #
+#    Updated: 2025/10/05 20:22:01 by tborges-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = bureaucrat
+NAME = ex00
 
 CXX = @c++
 CXXFLAGS = -std=c++98 -Wall -Wextra -Werror
