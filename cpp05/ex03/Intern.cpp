@@ -51,16 +51,3 @@ AForm *Intern::makeForm(std::string const &formName, std::string const &target) 
 	std::cout << "Intern cannot create form: '" << formName << "' (unknown)" << std::endl;
 	throw UnknownFormException();
 }
-
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Intern.cpp                                         :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/10/05 22:21:53 by tborges-          #+#    #+#             */
-/*   Updated: 2025/10/05 22:21:54 by tborges-         ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
