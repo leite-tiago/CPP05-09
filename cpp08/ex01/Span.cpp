@@ -24,7 +24,7 @@ void Span::addNumber(int number)
 {
 	if (_numbers.size() >= _maxSize)
 		throw SpanFullException();
-	
+
 	_numbers.push_back(number);
 }
 

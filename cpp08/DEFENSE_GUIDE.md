@@ -38,10 +38,10 @@ template <typename T>
 typename T::iterator easyfind(T& container, int value)
 {
     typename T::iterator it = std::find(container.begin(), container.end(), value);
-    
+
     if (it == container.end())
         throw NotFoundException();
-    
+
     return it;
 }
 ```
@@ -134,7 +134,7 @@ void addRange(Iterator begin, Iterator end)
 - R: Exemplo: [1, 5, 6, 100]. Os dois menores são 1 e 5 (span=4), mas o shortest span real é entre 5 e 6 (span=1). É necessário ordenar e verificar TODOS os pares adjacentes.
 
 **P: Complexidade de shortestSpan vs longestSpan?**
-- R: 
+- R:
   - `shortestSpan()`: O(n log n) devido ao sort
   - `longestSpan()`: O(n) - apenas duas passagens lineares
 
@@ -182,13 +182,13 @@ public:
 
     iterator begin() { return this->c.begin(); }
     iterator end() { return this->c.end(); }
-    
+
     const_iterator begin() const { return this->c.begin(); }
     const_iterator end() const { return this->c.end(); }
-    
+
     reverse_iterator rbegin() { return this->c.rbegin(); }
     reverse_iterator rend() { return this->c.rend(); }
-    
+
     const_reverse_iterator rbegin() const { return this->c.rbegin(); }
     const_reverse_iterator rend() const { return this->c.rend(); }
 };
@@ -212,7 +212,7 @@ std::stack<int> s(mstack);
 - R: MutantStack herda de std::stack, então pode ser usado como stack normal através de herança.
 
 **P: Qual a diferença entre iterator e const_iterator?**
-- R: 
+- R:
   - `iterator` - Permite modificar elementos (`*it = 42`)
   - `const_iterator` - Apenas leitura, não permite modificação
 
@@ -397,10 +397,10 @@ typename T::iterator easyfind_last(T& container, int value)
 {
     typename T::reverse_iterator rit = std::find(
         container.rbegin(), container.rend(), value);
-    
+
     if (rit == container.rend())
         throw NotFoundException();
-    
+
     // Converter reverse_iterator para iterator
     return (++rit).base();
 }
@@ -412,10 +412,10 @@ int Span::median() const
 {
     if (_numbers.empty())
         throw NoSpanException();
-        
+
     std::vector<int> sorted = _numbers;
     std::sort(sorted.begin(), sorted.end());
-    
+
     size_t mid = sorted.size() / 2;
     return sorted[mid];
 }
@@ -427,7 +427,7 @@ void keepFirst()
 {
     if (this->empty())
         return;
-        
+
     T first = this->top();
     while (!this->empty())
         this->pop();
