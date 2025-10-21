@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   mainMeu.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:10:51 by tborges-          #+#    #+#             */
-/*   Updated: 2025/10/21 14:10:52 by tborges-         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:10:18 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,10 @@
 
 int main(int, char**)
 {
-	// Test 1: Empty array
 	std::cout << "=== Test 1: Empty array ===" << std::endl;
 	Array<int> empty;
 	std::cout << "Size of empty array: " << empty.size() << std::endl;
 
-	// Test 2: Array with size
 	std::cout << "\n=== Test 2: Array with size ===" << std::endl;
 	Array<int> numbers(MAX_VAL);
 	int* mirror = new int[MAX_VAL];
@@ -37,7 +35,6 @@ int main(int, char**)
 	}
 	std::cout << "Created array of size: " << numbers.size() << std::endl;
 
-	// Test 3: Copy constructor
 	std::cout << "\n=== Test 3: Copy constructor ===" << std::endl;
 	{
 		Array<int> tmp = numbers;
@@ -50,7 +47,6 @@ int main(int, char**)
 		std::cout << "Copy[0]: " << test[0] << std::endl;
 	}
 
-	// Test 4: Check values
 	std::cout << "\n=== Test 4: Checking values ===" << std::endl;
 	for (int i = 0; i < MAX_VAL; i++)
 	{
@@ -63,7 +59,6 @@ int main(int, char**)
 	}
 	std::cout << "All values match! ✓" << std::endl;
 
-	// Test 5: Out of bounds access
 	std::cout << "\n=== Test 5: Out of bounds access ===" << std::endl;
 	try
 	{
@@ -85,7 +80,6 @@ int main(int, char**)
 		std::cout << "Exception caught for index >= size ✓" << std::endl;
 	}
 
-	// Test 6: Modifying values
 	std::cout << "\n=== Test 6: Modifying values ===" << std::endl;
 	for (int i = 0; i < MAX_VAL; i++)
 	{
@@ -95,7 +89,6 @@ int main(int, char**)
 
 	delete[] mirror;
 
-	// Test 7: String array
 	std::cout << "\n=== Test 7: String array ===" << std::endl;
 	Array<std::string> strings(5);
 	strings[0] = "Hello";
@@ -113,7 +106,6 @@ int main(int, char**)
 	}
 	std::cout << std::endl;
 
-	// Test 8: Assignment operator
 	std::cout << "\n=== Test 8: Assignment operator ===" << std::endl;
 	Array<int> original(3);
 	original[0] = 10;

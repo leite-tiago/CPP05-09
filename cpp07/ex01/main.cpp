@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:10:11 by tborges-          #+#    #+#             */
-/*   Updated: 2025/10/21 14:10:12 by tborges-         ###   ########.fr       */
+/*   Updated: 2025/10/21 14:24:50 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,21 @@
 #include <string>
 #include "iter.hpp"
 
-// Test function for integers
 void printInt(int const & x)
 {
 	std::cout << x << " ";
 }
 
-// Test function for strings
 void printString(std::string const & s)
 {
 	std::cout << s << " ";
 }
 
-// Test function that modifies the value (doubles it)
 void doubleValue(int & x)
 {
 	x *= 2;
 }
 
-// Template function to demonstrate it works with templates
 template <typename T>
 void print(T const & x)
 {

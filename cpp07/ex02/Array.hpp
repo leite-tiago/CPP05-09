@@ -6,7 +6,7 @@
 /*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/21 14:10:54 by tborges-          #+#    #+#             */
-/*   Updated: 2025/10/21 14:10:55 by tborges-         ###   ########.fr       */
+/*   Updated: 2025/10/21 16:10:02 by tborges-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 #include <exception>
 #include <cstddef>
+#include <cstdlib>
 
 template <typename T>
 class Array
@@ -24,39 +25,34 @@ class Array
 		unsigned int	_size;
 
 	public:
-		// Default constructor - creates empty array
 		Array() : _array(NULL), _size(0) {}
 
-		// Constructor with size parameter
 		Array(unsigned int n) : _array(new T[n]()), _size(n) {}
 
-		// Copy constructor
 		Array(Array const & src) : _array(NULL), _size(0)
 		{
 			*this = src;
 		}
 
-		// Destructor
 		~Array()
 		{
 			if (_array != NULL)
 				delete[] _array;
 		}
 
-		// Assignment operator
-		Array & operator=(Array const & rhs)
+		Array & operator=(Array const & other)
 		{
-			if (this != &rhs)
+			if (this != &other)
 			{
 				if (_array != NULL)
 					delete[] _array;
 
-				_size = rhs._size;
+				_size = other._size;
 				if (_size > 0)
 				{
 					_array = new T[_size];
 					for (unsigned int i = 0; i < _size; i++)
-						_array[i] = rhs._array[i];
+						_array[i] = other._array[i];
 				}
 				else
 					_array = NULL;
@@ -64,7 +60,6 @@ class Array
 			return *this;
 		}
 
-		// Subscript operator - non-const version
 		T & operator[](unsigned int index)
 		{
 			if (index >= _size)
@@ -72,7 +67,6 @@ class Array
 			return _array[index];
 		}
 
-		// Subscript operator - const version
 		T const & operator[](unsigned int index) const
 		{
 			if (index >= _size)
@@ -80,7 +74,6 @@ class Array
 			return _array[index];
 		}
 
-		// Size member function
 		unsigned int size() const
 		{
 			return _size;
