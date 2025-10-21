@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   MutantStack.hpp                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 16:42:08 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 18:39:12 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef MUTANTSTACK_HPP
 # define MUTANTSTACK_HPP
 
@@ -8,7 +20,6 @@ template <typename T>
 class MutantStack : public std::stack<T>
 {
 	public:
-		// Orthodox Canonical Form
 		MutantStack() : std::stack<T>() {}
 		MutantStack(const MutantStack& other) : std::stack<T>(other) {}
 		MutantStack& operator=(const MutantStack& other)
@@ -19,13 +30,11 @@ class MutantStack : public std::stack<T>
 		}
 		~MutantStack() {}
 
-		// Iterator typedefs
 		typedef typename std::stack<T>::container_type::iterator iterator;
 		typedef typename std::stack<T>::container_type::const_iterator const_iterator;
 		typedef typename std::stack<T>::container_type::reverse_iterator reverse_iterator;
 		typedef typename std::stack<T>::container_type::const_reverse_iterator const_reverse_iterator;
 
-		// Iterator methods
 		iterator begin()
 		{
 			return this->c.begin();

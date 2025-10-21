@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.hpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 16:41:58 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 18:22:58 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef SPAN_HPP
 # define SPAN_HPP
 
@@ -13,19 +25,16 @@ class Span
 		std::vector<int> _numbers;
 
 	public:
-		// Orthodox Canonical Form
 		Span();
 		Span(unsigned int n);
 		Span(const Span& other);
 		Span& operator=(const Span& other);
 		~Span();
 
-		// Member functions
 		void addNumber(int number);
 		int shortestSpan() const;
 		int longestSpan() const;
 
-		// Template member function to add range of iterators
 		template <typename Iterator>
 		void addRange(Iterator begin, Iterator end)
 		{
@@ -36,7 +45,6 @@ class Span
 			}
 		}
 
-		// Exceptions
 		class SpanFullException : public std::exception
 		{
 			public:

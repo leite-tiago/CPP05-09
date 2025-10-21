@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 16:41:51 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 18:25:17 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 #include <iostream>
 #include <cstdlib>
@@ -66,7 +78,6 @@ int main()
 	{
 		Span sp = Span(10000);
 
-		// Fill with range of iterators
 		std::vector<int> numbers;
 		for (int i = 0; i < 10000; ++i)
 			numbers.push_back(i);

@@ -1,6 +1,17 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Span.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 16:41:55 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 18:23:12 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Span.hpp"
 
-// Orthodox Canonical Form
 Span::Span() : _maxSize(0) {}
 
 Span::Span(unsigned int n) : _maxSize(n) {}
@@ -19,7 +30,6 @@ Span& Span::operator=(const Span& other)
 
 Span::~Span() {}
 
-// Member functions
 void Span::addNumber(int number)
 {
 	if (_numbers.size() >= _maxSize)
