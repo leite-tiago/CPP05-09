@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/10/21 14:09:43 by tborges-          #+#    #+#              #
+#    Updated: 2025/10/21 14:09:44 by tborges-         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = whatever
 
 CXX = c++
@@ -10,6 +22,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	@echo "$(NAME) compiled!"
 
 %.o: %.cpp whatever.hpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
