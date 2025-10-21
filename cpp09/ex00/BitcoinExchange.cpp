@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 20:48:16 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 21:25:36 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "BitcoinExchange.hpp"
 #include <fstream>
 #include <iostream>
@@ -43,7 +55,9 @@ bool BitcoinExchange::isValidDate(const std::string& date) const {
     if (year < 0 || month < 1 || month > 12 || day < 1 || day > 31)
         return false;
 
-    // Check days in month
+    if (year == 2025 && (month > 10 || (month == 10 && day > 21)))
+        return false;
+
     if (month == 2) {
         bool isLeap = (year % 4 == 0 && year % 100 != 0) || (year % 400 == 0);
         if (day > (isLeap ? 29 : 28))
@@ -127,7 +141,6 @@ double BitcoinExchange::getExchangeRate(const std::string& date) const {
         return it->second;
     }
 
-    // Find closest lower date
     it = _database.lower_bound(date);
     if (it == _database.begin()) {
         return 0.0;

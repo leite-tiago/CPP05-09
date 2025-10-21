@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   PmergeMe.cpp                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tborges- <tborges-@student.42lisboa.com    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/10/21 20:47:54 by tborges-          #+#    #+#             */
+/*   Updated: 2025/10/21 21:58:43 by tborges-         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "PmergeMe.hpp"
 #include <iostream>
 #include <sstream>
@@ -101,17 +113,14 @@ void PmergeMe::mergeInsertSortVector(std::vector<int>& arr) {
     if (n <= 1)
         return;
 
-    // Use insertion sort for small subarrays
     const int threshold = 16;
 
-    // First pass: sort pairs
     for (int i = 0; i < n - 1; i += 2) {
         if (arr[i] > arr[i + 1]) {
             std::swap(arr[i], arr[i + 1]);
         }
     }
 
-    // Iterative merge-insert sort
     for (int size = 2; size < n; size *= 2) {
         for (int left = 0; left < n - size; left += 2 * size) {
             int mid = left + size - 1;
@@ -125,7 +134,6 @@ void PmergeMe::mergeInsertSortVector(std::vector<int>& arr) {
         }
     }
 
-    // Final insertion sort to ensure everything is sorted
     if (n > 1) {
         insertionSortVector(arr, 0, n - 1);
     }
@@ -175,14 +183,12 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int>& arr) {
 
     const int threshold = 16;
 
-    // First pass: sort pairs
     for (int i = 0; i < n - 1; i += 2) {
         if (arr[i] > arr[i + 1]) {
             std::swap(arr[i], arr[i + 1]);
         }
     }
 
-    // Iterative merge-insert sort
     for (int size = 2; size < n; size *= 2) {
         for (int left = 0; left < n - size; left += 2 * size) {
             int mid = left + size - 1;
@@ -196,14 +202,12 @@ void PmergeMe::mergeInsertSortDeque(std::deque<int>& arr) {
         }
     }
 
-    // Final insertion sort
     if (n > 1) {
         insertionSortDeque(arr, 0, n - 1);
     }
 }
 
 void PmergeMe::sort() {
-    // Display before
     std::cout << "Before: ";
     for (size_t i = 0; i < _vectorData.size() && i < 5; i++) {
         std::cout << _vectorData[i] << " ";
@@ -213,7 +217,6 @@ void PmergeMe::sort() {
     }
     std::cout << std::endl;
 
-    // Sort with vector and measure time
     struct timeval start, end;
     gettimeofday(&start, NULL);
 
@@ -223,7 +226,6 @@ void PmergeMe::sort() {
     gettimeofday(&end, NULL);
     double vectorTime = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_usec - start.tv_usec);
 
-    // Sort with deque and measure time
     gettimeofday(&start, NULL);
 
     std::deque<int> dequeCopy = _dequeData;
@@ -232,7 +234,6 @@ void PmergeMe::sort() {
     gettimeofday(&end, NULL);
     double dequeTime = (end.tv_sec - start.tv_sec) * 1000000.0 + (end.tv_usec - start.tv_usec);
 
-    // Display after
     std::cout << "After: ";
     for (size_t i = 0; i < vectorCopy.size() && i < 5; i++) {
         std::cout << vectorCopy[i] << " ";
@@ -242,7 +243,6 @@ void PmergeMe::sort() {
     }
     std::cout << std::endl;
 
-    // Display times
     std::cout << "Time to process a range of " << _vectorData.size()
               << " elements with std::vector : " << vectorTime << " us" << std::endl;
     std::cout << "Time to process a range of " << _dequeData.size()
